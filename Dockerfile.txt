@@ -1,0 +1,8 @@
+# Sử dụng hình ảnh Nginx chính thức
+FROM nginx:alpine
+
+# Copy tất cả các file từ thư mục hiện tại vào thư mục gốc của Nginx
+COPY . /usr/share/nginx/html
+
+# Mở port 80 để phục vụ trang web
+EXPOSE 80
