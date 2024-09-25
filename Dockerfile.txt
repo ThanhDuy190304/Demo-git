@@ -1,10 +1,11 @@
+# Use a lightweight web server image
+FROM nginx:alpine
 
-FROM tomcat:9.0
+# Copy your HTML file to the default nginx directory
+COPY TEST.html /usr/share/nginx/html/TEST.html
 
-RUN rm -rf /usr/local/tomcat/webapps/*
+# Expose port 80 to allow web traffic
+EXPOSE 80
 
-COPY *.war /usr/local/tomcat/webapps
-
-EXPOSE 8080
-
-CMD ["catalina.sh", "run"]
+# Start nginx server
+CMD ["nginx", "-g", "daemon off;"]
