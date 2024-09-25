@@ -1,11 +1,4 @@
-# Sử dụng image nhẹ như Alpine hoặc Nginx để phục vụ nội dung tĩnh
 FROM nginx:alpine
-
-# Sao chép các file từ thư mục hiện tại vào thư mục mặc định của Nginx
 COPY . /usr/share/nginx/html
-
-# Expose port 80 để ứng dụng có thể được truy cập từ bên ngoài
 EXPOSE 80
-
-# Chạy Nginx
 CMD ["nginx", "-g", "daemon off;"]
