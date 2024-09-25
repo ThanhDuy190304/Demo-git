@@ -1,11 +1,8 @@
-# Use a lightweight web server image
+# Sử dụng Nginx để serve các file HTML tĩnh
 FROM nginx:alpine
 
-# Copy your HTML file to the default nginx directory
-COPY TEST.html /usr/share/nginx/html/TEST.html
+# Copy toàn bộ nội dung trang web vào thư mục Nginx
+COPY . /usr/share/nginx/html
 
-# Expose port 80 to allow web traffic
+# Expose port 80 để Nginx chạy
 EXPOSE 80
-
-# Start nginx server
-CMD ["nginx", "-g", "daemon off;"]
