@@ -1,8 +1,11 @@
-# Sử dụng hình ảnh Nginx chính thức
+# Sử dụng image nhẹ như Alpine hoặc Nginx để phục vụ nội dung tĩnh
 FROM nginx:alpine
 
-# Copy tất cả các file từ thư mục hiện tại vào thư mục gốc của Nginx
+# Sao chép các file từ thư mục hiện tại vào thư mục mặc định của Nginx
 COPY . /usr/share/nginx/html
 
-# Mở port 80 để phục vụ trang web
+# Expose port 80 để ứng dụng có thể được truy cập từ bên ngoài
 EXPOSE 80
+
+# Chạy Nginx
+CMD ["nginx", "-g", "daemon off;"]
